@@ -1,3 +1,84 @@
+/*plugins {
+    id 'java'
+    id 'idea'
+    id "net.serenity-bdd.serenity-gradle-plugin" version "${serenityVersion}"
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+java {
+
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaVersion)
+    }
+}
+
+dependencies {
+
+    implementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}"
+
+    testImplementation "net.serenity-bdd:serenity-ensure:${serenityVersion}"
+
+    implementation "ch.qos.logback:logback-classic:${logback_classic_version}"
+
+    implementation "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    implementation "org.aspectj:aspectjweaver:${aspectjweaver_version}"
+    implementation "com.madgag:animated-gif-lib:${animated_gif_lib_version}"
+
+    testImplementation "org.assertj:assertj-core:${assertj_core_version}"
+
+    testImplementation platform("org.junit:junit-bom:${junit_jupiter_version}")
+
+    testImplementation "org.junit.jupiter:junit-jupiter"
+
+    testImplementation "org.junit.platform:junit-platform-suite:${junit_platform_version}"
+
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberVersion}"
+
+}
+
+test {
+
+    useJUnitPlatform()
+
+    systemProperties System.getProperties()
+
+    maxParallelForks = Runtime.runtime.availableProcessors()
+
+    testLogging {
+        showStandardStreams = true
+    }
+
+    finalizedBy aggregate
+}
+
+serenity {
+
+    testRoot = System.getProperty("gradle.props.project.package.base") + ".runners"
+
+    requirementsBaseDir =
+            System.getProperty("gradle.props.project.package.resource.test.url") +
+                    "/features"
+
+    reports = [
+            "single-page-html",
+            "navigator"
+    ]
+}
+
+defaultTasks 'clean', 'test', 'aggregate'*/
+
+
+
 /** build.gradle acopled
  *
  */
