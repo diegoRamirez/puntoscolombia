@@ -68,4 +68,14 @@ public class Buscador {
             Target.the("barra de progreso del slider de precio")
                     .locatedBy(SLIDER_BASE + "//div[@data-react-toolbox='progress-bar']");
 
+    public static Target TARJETA_DESTINO(String nombreDestino) {
+        return Target.the("botón de reserva para el destino: " + nombreDestino)
+                .locatedBy(String.format(
+                        "//h5[contains(@class,'theme__title') and normalize-space(text())='%s']" +
+                                "/ancestor::div[.//button[contains(@class,'BookButton')]][1]" +
+                                "//button[contains(@class,'BookButton')]",
+                        nombreDestino
+                ));
+    }
+
 }

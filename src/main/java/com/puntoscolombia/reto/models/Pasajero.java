@@ -5,8 +5,8 @@ public class Pasajero {
     private String email;
     private String numeroSeguridadSocial;
     private String telefono;
-    private String archivo;
-
+    //private String archivo;
+    private String codigoPromocional;
     public Pasajero() {
     }
 
@@ -14,13 +14,15 @@ public class Pasajero {
                          String email,
                          String numeroSeguridadSocial,
                          String telefono,
-                         String archivo) {
+                         //String archivo,
+                         String codigoPromocional) {
 
         this.nombre = nombre;
         this.email = email;
         this.numeroSeguridadSocial = numeroSeguridadSocial;
         this.telefono = telefono;
-        this.archivo = archivo;
+        //this.archivo = archivo;
+        this.codigoPromocional = codigoPromocional;
     }
 
     public String getNombre() {
@@ -39,7 +41,10 @@ public class Pasajero {
         return telefono;
     }
 
-    public String getArchivo() {
+    /*public String getArchivo() {
         return archivo;
+    }*/
+    public String getCodigoPromocional(){
+        return codigoPromocional;
     }
 }

@@ -1,9 +1,8 @@
 package com.puntoscolombia.reto.stepdefinitions;
 
 import com.puntoscolombia.reto.models.DatosViaje;
-import com.puntoscolombia.reto.tasks.BuscarVuelo;
-import com.puntoscolombia.reto.tasks.EstablecerPrecioMaximo;
-import com.puntoscolombia.reto.tasks.OpenPage;
+import com.puntoscolombia.reto.models.Pasajero;
+import com.puntoscolombia.reto.tasks.*;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
@@ -29,8 +28,11 @@ public class ReservaStep {
     }
     @Managed
     WebDriver hisBrowser;
+    DatosViaje datos;
+    Pasajero pasajero;
     @Dado("que el usuario se encuentra en la página de búsqueda de vuelos")
     public void queElUsuarioSeEncuentraEnLaPaginaDeBusquedaDeVuelos() {
+
 
         theActorCalled("actor").whoCan(BrowseTheWeb.with(hisBrowser));
         theActorInTheSpotlight().wasAbleTo(OpenPage.throughOfThe());
@@ -40,29 +42,39 @@ public class ReservaStep {
     @Cuando("realiza una búsqueda con los siguientes datos")
     public void realizaUnaBusquedaConLosSiguientesDatos(List<DatosViaje> datosViaje) {
 
-        DatosViaje datos = datosViaje.get(0);
+        datos = datosViaje.get(0);
 
         theActorInTheSpotlight().attemptsTo(
                 BuscarVuelo.con(datos)
         );
     }
-
-
-    /*@Y("elige el destino que le interesa con un precio máximo de {int}")
+    @Y("establece el filtro con un precio máximo de {int}")
     public void eligeElDestinoQueLeInteresaConUnPrecioMaximoDe(int precioMaximo) {
         theActorInTheSpotlight().attemptsTo(
                 EstablecerPrecioMaximo.con(precioMaximo)
-        );}*/
+        );
+    }
+
+    @Y("elige un destino {string}")
+    public void eligeUnDestino(String destino) {
+        theActorInTheSpotlight().attemptsTo(
+                SeleccionarTarjetaDestino.con(destino)
+        );
+    }
+
+
+    @Y("diligencia el checkout con")
+    public void diligenciaElCheckoutCon(List<Pasajero> pasajeros) {
+        pasajero = pasajeros.get(0);
+        theActorInTheSpotlight().attemptsTo(
+                LlenarFormulario.con(pasajero)
+        );
+    }
 
     @Entonces("deberia ver su reserva finalizada exitosamente")
     public void deberiaVerSuReservaFinalizadaExitosamente() {
     }
 
 
-    @Y("elige el destino que le interesa {String} con un precio máximo de {int}")
-    public void eligeElDestinoQueLeInteresaDestinoConUnPrecioMáximoDePrecioMaximo(String destino,int precioMaximo) {
-        theActorInTheSpotlight().attemptsTo(
-                EstablecerPrecioMaximo.con(precioMaximo)
-        );
-    }
+
 }
