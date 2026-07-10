@@ -25,4 +25,4 @@ Característica: Reserva de vuelos para viaje
     #El precio máximo debe estar entre 100 y 1800
     #La la cantidad de adultos y de menores debe ser máximo 4
       | fechaSalida | fechaLlegada | cantidadAdultos | cantidadMenores | precioMaximo | destino    |  nombre      | email           | numeroSeguridadSocial   | telefono     | codigoPromocional |
-      | 15/07/2026  | 18/08/2026   | 4               | 2               | 500          | "Shaheying"|"Lionel Messi" |"messi@mail.com" |"123-45-6789"            |"+17871234567"|"A1234"             |
+      | 15/07/2026  | 18/08/2026   | 4               | 2               | 500          | "Shaheying"|Lionel Messi |messi@mail.com    |123-45-6789              |+17871234567  |A1234            |
